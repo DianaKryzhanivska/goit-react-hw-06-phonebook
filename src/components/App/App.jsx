@@ -65,6 +65,7 @@ export const App = () => {
       ) : (
         <Info>There are no contacts in your phonebook.</Info>
       )}
+
       <ContactList />
     </Container>
   );
