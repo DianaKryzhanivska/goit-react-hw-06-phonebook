@@ -15,43 +15,6 @@ import { selectContacts } from 'redux/contactForm/selectors';
 
 export const App = () => {
   const contacts = useSelector(selectContacts);
-  // const [contacts, setContacts] = useState(() => {
-  //   return JSON.parse(localStorage.getItem('contacts')) ?? defaultContacts;
-  // });
-  // const [filter, setFilter] = useState('');
-
-  // useEffect(() => {
-  //   localStorage.setItem('contacts', JSON.stringify(contacts));
-  // }, [contacts]);
-
-  // const addContact = contact => {
-  //   const isInContacts = contacts.find(
-  //     ({ name }) => name.toLowerCase() === contact.name.toLowerCase()
-  //   );
-
-  //   if (isInContacts) {
-  //     alert(`${contact.name} is already in contacts`);
-  //     return;
-  //   }
-
-  //   setContacts(prev => [...prev, { id: nanoid(), ...contact }]);
-  // };
-
-  // const updateFilter = event => {
-  //   setFilter(event.target.value);
-  // };
-
-  // const getAvailableContacts = () => {
-  //   return contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(filter.toLowerCase())
-  //   );
-  // };
-
-  // const deleteContact = contactId => {
-  //   setContacts(prev => prev.filter(contact => contact.id !== contactId));
-  // };
-
-  // const availableContacts = getAvailableContacts();
 
   return (
     <Container>

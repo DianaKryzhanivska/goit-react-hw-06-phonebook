@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-// import { nanoid } from 'nanoid';
 import { Form, Label, Button, Input } from './ContactForm.styled';
 // import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactForm/slice';
 import { selectContacts } from 'redux/contactForm/selectors';
-import { toast } from 'react-toastify';
 import { nanoid } from '@reduxjs/toolkit';
 
 export const ContactForm = () => {
@@ -18,8 +16,8 @@ export const ContactForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (contacts.some(({ name }) => name === contactName)) {
-      toast.info(`${contactName} is already in Phonebook`);
+    if (contacts.find(({ name }) => name === contactName)) {
+      alert(`${contactName} is already in Phonebook`);
       return;
     }
     dispatch(

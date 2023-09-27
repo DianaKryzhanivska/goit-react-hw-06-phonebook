@@ -7,36 +7,34 @@ import { deleteContact } from 'redux/contactForm/slice';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
-  const { contacts } = useSelector(selectContacts);
+  const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
-
-  const filteredContacts = contacts
-    ? contacts.filter(
-        contact =>
-          contact.name &&
-          contact.name.toLowerCase().includes(filter.toLowerCase())
-      )
-    : [];
+  // console.log(contacts);
+  const filteredContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
 
   const handleDeleteContact = id => {
     dispatch(deleteContact(id));
   };
-  <List>
-    {filteredContacts.map(contact => (
-      <Item key={contact.id}>
-        {contact.name + ' : ' + contact.number}
-        {
-          <Button
-            type="button"
-            name="delete"
-            onClick={() => handleDeleteContact(contact.id)}
-          >
-            delete
-          </Button>
-        }
-      </Item>
-    ))}
-  </List>;
+  return (
+    <List>
+      {filteredContacts.map(contact => (
+        <Item key={contact.id}>
+          {contact.name + ' : ' + contact.number}
+          {
+            <Button
+              type="button"
+              name="delete"
+              onClick={() => handleDeleteContact(contact.id)}
+            >
+              delete
+            </Button>
+          }
+        </Item>
+      ))}
+    </List>
+  );
 };
 
 // ContactList.propTypes = {
